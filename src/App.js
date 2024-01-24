@@ -1,13 +1,15 @@
 import * as Tabs from '@radix-ui/react-tabs';
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 
 import Timer from './Timer';
 import WorldClock from './WorldClock';
 import './styles.css';
-import './App.css';
 
 
 function App() {
   return (
+    <Theme>
       <Tabs.Root className="TabsRoot" defaultValue="timer">
         <Tabs.List className="TabsList">
           <Tabs.Trigger className="TabsTrigger" value="timer">Timer</Tabs.Trigger>
@@ -20,6 +22,7 @@ function App() {
           <WorldClock />
         </Tabs.Content>
       </Tabs.Root>
+    </Theme>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from '@radix-ui/themes';
 
 const Timer = ({ initialTime, removeTimer, id }) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
@@ -24,10 +25,10 @@ const Timer = ({ initialTime, removeTimer, id }) => {
     <div>
       <h2>Timer # {id + 1}</h2>
       <p>Time Left: {timeLeft} seconds</p>
-      <button onClick={() => setIsRunning(!isRunning)}>{
+      <Button onClick={() => setIsRunning(!isRunning)}>{
         isRunning ? 'Reset' : 'Start'
-      }</button>
-      <button onClick={() => removeTimer(id)}>Remove Timer</button>
+      }</Button>
+      <Button onClick={() => removeTimer(id)}>Remove Timer</Button>
     </div>
   );
 };
@@ -38,6 +39,10 @@ const TimerList = () => {
   const [timerCounter, setTimerCounter] = useState(0);
 
   const addTimer = () => {
+    if (newTimerTime === '') {
+      alert('Please enter a time in seconds');
+      return
+    }
     setTimers([...timers, { id: timerCounter, time: parseInt(newTimerTime, 10) }]);
     setNewTimerTime('');
     setTimerCounter(timerCounter + 1);
@@ -55,7 +60,7 @@ const TimerList = () => {
         onChange={(e) => setNewTimerTime(e.target.value)}
         placeholder="Enter time in seconds"
       />
-      <button onClick={addTimer}>Add Timer</button>
+      <Button onClick={addTimer}>Add Timer</Button>
       <div>
         {timers.map(timer => (
           <Timer
