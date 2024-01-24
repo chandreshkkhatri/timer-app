@@ -1,22 +1,25 @@
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import * as Tabs from '@radix-ui/react-tabs';
 
 import Timer from './Timer';
 import WorldClock from './WorldClock';
+import './styles.css';
+import './App.css';
+
 
 function App() {
   return (
-    <Router>
-      <nav>
-        <ul>
-          <li><Link to="/timer">Timer</Link></li>
-          <li><Link to="/world-clock">World Clock</Link></li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/timer" exact element={<Timer />} />
-        <Route path="/world-clock" element={<WorldClock />} />
-      </Routes>
-    </Router>
+      <Tabs.Root className="TabsRoot" defaultValue="timer">
+        <Tabs.List className="TabsList">
+          <Tabs.Trigger className="TabsTrigger" value="timer">Timer</Tabs.Trigger>
+          <Tabs.Trigger className="TabsTrigger" value="world-clock">World Clock</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content className="TabsContent" value="timer">
+          <Timer />
+        </Tabs.Content>
+        <Tabs.Content className="TabsContent" value="world-clock">
+          <WorldClock />
+        </Tabs.Content>
+      </Tabs.Root>
   );
 }
 
