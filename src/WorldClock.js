@@ -7,6 +7,7 @@ const Timezone = {
   None: 'None',
 }
 
+// took AI help generating initial code 
 const WorldClock = () => {
   const [currentTime, setCurrentTime] = useState('');
   const [selectedTimezone, setSelectedTimezone] = useState(Timezone.None);
@@ -46,7 +47,7 @@ const WorldClock = () => {
 
   const getFormattedTime = () => {
     
-    return moment(currentTime).tz(selectedTimezone).format('h:mm:ss A');
+    return moment(currentTime).tz(selectedTimezone).format('hh:mm:ss A');
   }
 
   return (

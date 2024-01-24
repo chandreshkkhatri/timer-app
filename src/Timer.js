@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@radix-ui/themes';
 
+// took AI help generating initial code 
 const Timer = ({ initialTime, removeTimer, id }) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
