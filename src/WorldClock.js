@@ -34,7 +34,7 @@ const WorldClock = () => {
 
   const getTimeInTimeZone = async (timeZone) => {
     try {
-      const response = await fetch(`http://worldtimeapi.org/api/timezone/${timeZone}`);
+      const response = await fetch(`https://worldtimeapi.org/api/timezone/${timeZone}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
