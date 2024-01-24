@@ -17,7 +17,7 @@ const Timer = ({ initialTime, removeTimer, id }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timeLeft, isRunning]);
+  }, [timeLeft, isRunning, initialTime]);
 
 
   return (

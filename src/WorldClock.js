@@ -29,7 +29,7 @@ const WorldClock = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [currentTime]);
+  }, [currentTime, selectedTimezone]);
 
   const getTimeInTimeZone = async (timeZone) => {
     try {
