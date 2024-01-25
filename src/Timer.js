@@ -15,7 +15,7 @@ const Timer = ({ initialTime, removeTimer, id }) => {
     }
 
     const interval = setInterval(() => {
-      setTimeLeft(timeLeft - 1);
+      setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
     }, 1000);
 
     return () => clearInterval(interval);
